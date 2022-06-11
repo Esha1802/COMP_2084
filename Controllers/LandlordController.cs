@@ -13,28 +13,36 @@ namespace COMP_2084_Assigment_1.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            // Fetch all landlord list and it will be displayed on main page
+            var ladnlords = datacontext.Landlords.ToList();
+            return View(ladnlords);
         }
         public IActionResult Edit(int landlordId)
         {
+            //If landlord id is passed then we need to show old details so it will be fetched here
             var landlord = datacontext.Landlords.Where(x => x.Id == landlordId).FirstOrDefault();
+
             if (landlord == null)
                 landlord = new Landlord();
+
             return View(landlord);
         }
         [HttpPost]
         public IActionResult Edit(Landlord landlord)
         {
+            //When Id is zero it means it's in Add Mode
             if (landlord.Id == 0)
             {
                 datacontext.Landlords.Add(landlord);
             }
+            // If Id is not zero means it's in Edit Mode
             else
             {
                 datacontext.Landlords.Update(landlord);
             }
             datacontext.SaveChanges();
-            return View("Index");
+
+            return RedirectToAction("Index");
         }
     }
 }
