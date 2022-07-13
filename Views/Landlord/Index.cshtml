@@ -2,44 +2,55 @@
 @model List<Landlord>
 @{
     ViewData["Title"] = "Landlord Page";
+    var isAuthenticated = User.Identity.IsAuthenticated;
 }
 
 <div class="container">
     <h2>Landlord Details</h2>
     <div class="row">
         <div class="col-12 m-2">
-            <a asp-action="Edit" class="btn btn-sm btn-success">Add Landlord</a>
+            @if (isAuthenticated)
+            {
+                <a asp-action="Edit" class="btn btn-sm btn-success">Add Landlord</a>
+            }
         </div>
     </div>
     <div class="row">
-    <div class="col-12">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Primary Phone</th>
-                    <th>Secondary Phone</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var landlord in Model)
-                {
+        <div class="col-12">
+            <table class="table table-bordered table-striped">
+                <thead>
                     <tr>
-                        <td>@landlord.Id</td>
-                        <td>@landlord.FirstName</td>
-                        <td>@landlord.LastName</td>
-                        <td>@landlord.EmailAddress</td>
-                        <td>@landlord.PrimaryPhoneNumber</td>
-                        <td>@landlord.SecondaryPhoneNumber</td>
-                        <td><a asp-action="Edit" asp-route-landlordId="@landlord.Id">Edit</a></td>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Primary Phone</th>
+                        <th>Secondary Phone</th>
+                        @if (isAuthenticated)
+                        {
+                            <th>Action</th>
+                        }
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var landlord in Model)
+                    {
+                        <tr>
+                            <td>@landlord.Id</td>
+                            <td>@landlord.FirstName</td>
+                            <td>@landlord.LastName</td>
+                            <td>@landlord.EmailAddress</td>
+                            <td>@landlord.PrimaryPhoneNumber</td>
+                            <td>@landlord.SecondaryPhoneNumber</td>
+                            @if (isAuthenticated)
+                            {
+                                <td><a asp-action="Edit" asp-route-landlordId="@landlord.Id">Edit</a></td>
+
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 </div>

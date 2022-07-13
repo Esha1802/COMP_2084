@@ -1,5 +1,6 @@
 ﻿using COMP_2084_Assigment_1.Data;
 using COMP_2084_Assigment_1.Models.Landlord;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace COMP_2084_Assigment_1.Controllers
@@ -17,6 +18,7 @@ namespace COMP_2084_Assigment_1.Controllers
             var ladnlords = datacontext.Landlords.ToList();
             return View(ladnlords);
         }
+        [Authorize]
         public IActionResult Edit(int landlordId)
         {
             //If landlord id is passed then we need to show old details so it will be fetched here
@@ -27,6 +29,7 @@ namespace COMP_2084_Assigment_1.Controllers
 
             return View(landlord);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Landlord landlord)
         {
