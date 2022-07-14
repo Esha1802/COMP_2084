@@ -16,19 +16,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-//    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-//})
-//    .AddCookie()
-//    .AddGoogle(options =>
-//    {
-//        options.ClientId = "517225143608-omm1k4kip6fke9j4r0v9r1p62u9omavk.apps.googleusercontent.com";
-//        options.ClientSecret = "Vbpm32EoX7a9eIXZ0fMRc43Q";
-//        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-//        options.SaveTokens = true;
-//    });
+var services = builder.Services;
+var configuration = builder.Configuration;
+
+services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+});
+
 
 var app = builder.Build();
 
