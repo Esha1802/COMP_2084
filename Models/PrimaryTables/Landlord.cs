@@ -1,4 +1,6 @@
-﻿namespace COMP_2084_Assigment_1.Models.Landlord
+﻿using COMP_2084_Assigment.Models.Property;
+
+namespace COMP_2084_Assigment.Models.PrimaryTables
 {
     public class Landlord
     {
@@ -9,5 +11,7 @@
         public string CompanyName { get; set; }
         public string PrimaryPhoneNumber { get; set; }
         public string SecondaryPhoneNumber { get; set; }
+
+        public IEnumerable<Property> Properties { get; set; }
     }
 }
