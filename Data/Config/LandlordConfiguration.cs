@@ -1,4 +1,4 @@
-﻿using COMP_2084_Assigment_1.Models.Landlord;
+﻿using COMP_2084_Assigment.Models.PrimaryTables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

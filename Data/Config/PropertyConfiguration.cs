@@ -1,4 +1,4 @@
-﻿using COMP_2084_Assigment.Models.Property;
+﻿using COMP_2084_Assigment.Models.PrimaryTables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -23,11 +23,6 @@ namespace COMP_2084_Assigment.Data.Config
                 .WithOne(a => a.Property)
                 .HasForeignKey<Property>(m => m.AddressId)
                 .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasMany(m => m.Expenses)
-                .WithOne(a => a.Property)
-                .HasForeignKey(m => m.PropertyId)
-                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

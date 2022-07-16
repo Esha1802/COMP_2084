@@ -1,5 +1,5 @@
-﻿using COMP_2084_Assigment_1.Data;
-using COMP_2084_Assigment_1.Models.Landlord;
+﻿using COMP_2084_Assigment.Models.PrimaryTables;
+using COMP_2084_Assigment_1.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

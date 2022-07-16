@@ -1,6 +1,4 @@
-﻿using COMP_2084_Assigment.Models.Property;
-
-namespace COMP_2084_Assigment.Models.PrimaryTables
+﻿namespace COMP_2084_Assigment.Models.PrimaryTables
 {
     public class Landlord
     {

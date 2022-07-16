@@ -1,5 +1,4 @@
 ﻿using COMP_2084_Assigment.Models.ReferenceTables;
-using COMP_2084_Assigment_1.Models.Landlord;
 
 namespace COMP_2084_Assigment.Models.PrimaryTables
 {
@@ -15,5 +14,6 @@ namespace COMP_2084_Assigment.Models.PrimaryTables
         public Landlord Landlord { get; set; }
         public BuildingType BuildingType { get; set; }
         public UnitType UnitType { get; set; }
+        public Address Address { get; set; }
     }
 }
