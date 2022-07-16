@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace COMP_2084_Assigment_1.Data.Config
+namespace COMP_2084_Assigment.Data.Config.PrimaryTablesConfig
 {
     public class LandlordConfiguration : IEntityTypeConfiguration<Landlord>
     {

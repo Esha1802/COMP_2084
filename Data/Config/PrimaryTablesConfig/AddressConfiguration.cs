@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace COMP_2084_Assigment.Data.Config
+namespace COMP_2084_Assigment.Data.Config.PrimaryTablesConfig
 {
     public class AddressConfiguration : IEntityTypeConfiguration<Address>
     {
